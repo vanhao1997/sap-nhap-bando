@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "data:build": "node scripts/build-data.mjs",
+    "coolify:install": "curl -fsSL https://nodejs.org/dist/v22.14.0/node-v22.14.0-linux-x64.tar.xz -o /tmp/node22.tar.xz && mkdir -p /tmp/node22 && tar -xJf /tmp/node22.tar.xz -C /tmp/node22 --strip-components=1 && /tmp/node22/bin/node -v && rm -f package-lock.json && PATH=/tmp/node22/bin:$PATH npm install --include=optional",
+    "coolify:build": "PATH=/tmp/node22/bin:$PATH npm run build",
     "dev": "vite",
     "build": "npm run data:build && tsc && vite build",
     "preview": "vite preview",
